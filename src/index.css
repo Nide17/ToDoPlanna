@@ -119,3 +119,7 @@
 .form-text-color {
   color: #FFFFFF;
 }
+
+.bg-image {
+  background-image: url("../src/assets/bg.png");
+}

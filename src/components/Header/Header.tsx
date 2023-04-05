@@ -9,11 +9,8 @@ const Header = () => {
     }
 
     return (
-        // bg white with text dark shade of grey and font size 16px in tailwind
-        <header className='w-100 bg-slate-100 text-slate-900 text-16'>
+        <header className='fixed top-0 left-0 w-full z-10 bg-slate-100 text-slate-900 text-16'>
             <nav className="py-1 px-3 flex items-center columns-3">
-
-                {/* bg color 051726 */}
                 <div className="p-2 flex-none w-120 h-16 flex items-center justify-center text-center">
                     <a href="#" className='p-1 font-bold'>
                         <span className='block text-2xl text-blue-500 leading-6'>ToDoPlanna</span>
@@ -60,7 +57,7 @@ const Header = () => {
 
                 <div className={`hamburger inline sm:hidden ml-auto ${isMenuOpen ? "w-4 h-[2rem]":""}`} onClick={toggleMenu}>
                     <span className={`w-5 h-[2px] bg-slate-900 block ${isMenuOpen ? "hidden" : ""}`}></span>
-                    <span className={`w-5 h-[2px] bg-slate-900 block my-1 ${isMenuOpen ? "w-0 h-0 font-mono text-3xl my-auto" : ""}`}>
+                    <span className={`sm:w-5 h-[2px] bg-slate-900 block my-1 ${isMenuOpen ? "w-0 h-0 font-mono text-3xl my-auto" : ""}`}>
                             {isMenuOpen ? "X" : ""}
                             </span>
                     <span className={`w-5 h-[2px] bg-slate-900 block ${isMenuOpen ? "hidden" : ""}`}></span>
