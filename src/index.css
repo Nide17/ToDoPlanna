@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* THIS CODE IS NOT WORKING */
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Primary color: Use black or a very dark shade of gray (#1C1C1C) as the primary color. */
+.primary-color {
+  background-color: #1C1C1C;
+}
+
+/* Accent color: Use a bright color as the accent color. */
+.accent-color {
+  background-color: #3498DB;
+}
+
+/* Text color: Use white (#FFFFFF) or light gray (#F5F5F5) for text to provide a good contrast with the dark background. */
+.text-color {
+  color: #FFFFFF;
+}
+
+/* Accent colors: Use bright accent colors to highlight important elements of the design. Here are some suggestions: */
+.accent-color-blue {
+  background-color: #3498DB;
+}
+
+.accent-color-green {
+  background-color: #27AE60;
+}
+
+.accent-color-yellow {
+  background-color: #F1C40F;
+}
+
+.accent-color-orange {
+  background-color: #F39C12;
+}
+
+.accent-color-pink {
+  background-color: #E91E63;
+}
+
+/* Navigation bar: Use the primary color for the background and the accent colors for active and hover states. */
+.nav-bar {
+  background-color: #1C1C1C;
+}
+
+.nav-bar a:hover {
+  background-color: #3498DB;
+}
+
+.nav-bar a.active {
+  background-color: #27AE60;
+}
+
+/* Buttons: Use the accent colors for the button background and white or light gray for text. */
+.button-primary-color {
+  background-color: #1C1C1C;
+  color: #FFFFFF;
+}
+
+.button-accent-color {
+  background-color: #3498DB;
+  color: #FFFFFF;
+}
+
+/* Headers: Use the primary color for the background and white or light gray for text. */
+.header-primary-color {
+  background-color: #1C1C1C;
+  color: #FFFFFF;
+}
+
+.header-accent-color {
+  background-color: #3498DB;
+  color: #FFFFFF;
+}
+
+/* Footer: Use the primary color for the background and white or light gray for text. */
+.footer-primary-color {
+  background-color: #1C1C1C;
+  color: #FFFFFF;
+}
+
+.footer-accent-color {
+  background-color: #3498DB;
+  color: #FFFFFF;
+}
+
+/* Icons: Use white or light gray for icons on the primary color background and the accent colors for icons on the accent color background. */
+.icon-primary-color {
+  color: #FFFFFF;
+}
+
+.icon-accent-color {
+  color: #3498DB;
+}
+
+/* Checkboxes and radio buttons: Use the accent colors for the check or radio button and white or light gray for the background. */
+.checkbox-primary-color {
+  background-color: #FFFFFF;
+}
+
+.checkbox-accent-color {
+  background-color: #3498DB;
+}
+
+/* Forms and input fields: Use a light gray (#333333) for the background and white or light gray for the text. */
+.form-primary-color {
+  background-color: #333333;
+}
+
+.form-text-color {
+  color: #FFFFFF;
+}
