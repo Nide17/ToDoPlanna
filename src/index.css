@@ -11,6 +11,15 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+
 /* Primary color: Use black or a very dark shade of gray (#1C1C1C) as the primary color. */
 .primary-color {
   background-color: #1C1C1C;
@@ -120,6 +129,41 @@
   color: #FFFFFF;
 }
 
-.bg-image {
+.bg-image-home {
   background-image: url("../src/assets/bg.png");
+}
+
+.bg-image-contact {
+  background-image: url("../src/assets/contact.png");
+}
+
+.bg-image-login {
+  background-image: url("../src/assets/login.png");
+}
+
+.linkedin-icon {
+  background-image: url('../src/assets/icons8-linkedin.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 72px;
+  height: 72px;
+}
+
+.github-icon {
+  background-image: url('../src/assets/icons8-github.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 72px;
+  height: 72px;
+}
+
+.whatsapp-icon {
+  background-image: url('../src/assets/icons8-whatsapp.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 72px;
+  height: 72px;
 }
