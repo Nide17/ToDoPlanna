@@ -1,38 +1,87 @@
-function SignUp() {
+import { useState } from 'react'
+import axios from 'axios'
+import Form from './Form'
+
+const SignUp = () => {
+
+  // URL for the backend
+  const url = 'https://todoplanna.cyclic.app' || 'https://gray-cautious-piglet.cyclic.app' || 'http://localhost:3000'
+
+  // ERROR, SUCCESS, LOADING
+  const [authError, setAuthError] = useState('')
+  const [authSuccess, setAuthSuccess] = useState(false)
+  const [authLoading, setAuthLoading] = useState(false)
+
+  // Function to validate the form and create a new user
+  const createUser = async (username: string, email: string, password: string, password2: string) => {
+
+    // Check for empty fields
+    if (!username || !email || !password || !password2) {
+      setAuthError('Please fill in all fields')
+      return;
+    }
+
+    // Check for valid email address 
+    const re = /\S+@\S+\.\S+/
+    if (!re.test(email)) {
+      setAuthError('Please enter a valid email address')
+      return;
+    }
+
+    // Check if passwords match
+    if (password !== password2) {
+      setAuthError('Passwords do not match')
+      console.log('Passwords do not match')
+      return;
+    }
+
+    // Check password length
+    if (password.length < 6) {
+      setAuthError('Password must be at least 6 characters')
+      return;
+    }
+
+    // Check username length
+    if (username.length < 3 || username.length > 30) {
+      setAuthError('Username must be between 3 and 30 characters')
+      return
+    }
+
+    // create user
+    try {
+      // clear error message
+      setAuthError('')
+      // set loading to true when loading user profile data from server and before setting user state
+      setAuthLoading(true)
+
+      // create user - http://localhost:3000/users
+      const response = await axios.post(`${url}/users`, { username, email, password })
+
+      // set success message
+      setAuthSuccess(true)
+      return response
+    }
+    catch (err) {
+      // set error message
+      setAuthError('Error signing up!')
+      console.log(err)
+    }
+
+    finally {
+      // set loading to false when user state is set
+      setAuthLoading(false)
+    }
+  }
+
   return (
     <div className="flex items-center justify-center h-screen bg-image-login bg-cover bg-center bg-no-repeat">
-      <form className="flex flex-col items-center justify-center w-5/6 sm:w-2/5 h-2/3 bg-blue-500 rounded-lg sm:hover:scale-110 sm:hover:bg-blue-700 transition duration-300 ease-in-out shadow-lg shadow-white">
-
-        <div className="flex-none w-120 h-16 flex items-center justify-center text-center">
-          <a href="/" className='p-1 font-bold'>
-            <span className='block text-4xl text-blue-100 leading-8'>ToDoPlanna</span>
-            <span className='block text-[12px] text-slate-800 underline underline-offset-4 leading-6'>Organize, be productive</span>
-          </a>
-        </div>
-
-        <h1 className="text-4xl font-bold my-8">
-          SignUp
-        </h1>
-        <input
-          className="w-5/6 sm:w-2/3 h-10 my-4 text-center sm:my-2 px-2 rounded-lg"
-          type="text"
-          placeholder="Username"
-        />
-        <input
-          className="w-5/6 sm:w-2/3 h-10 my-4 text-center sm:my-2 px-2 rounded-lg"
-          type="password"
-          placeholder="Password"
-        />
-        <button type="submit" className="w-5/6 sm:w-2/3 h-10 my-4 text-center sm:my-2 rounded-lg bg-slate-900 text-white">
-          SignUp
-        </button>
-
-        <p className="text-center text-white text-sm underline underline-offset-4">
-          <a href="/login">Already have an account? Login</a>
-        </p>
-      </form>
+      <Form
+        createUser={createUser}
+        authError={authError}
+        authSuccess={authSuccess}
+        authLoading={authLoading} />
     </div>
-  );
+  )
 }
 
-export default SignUp;
+export default SignUp

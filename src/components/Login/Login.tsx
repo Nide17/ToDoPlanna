@@ -19,7 +19,7 @@ function Login() {
         <input
           className="w-5/6 sm:w-2/3 h-10 my-4 text-center sm:my-2 px-2 rounded-lg"
           type="text"
-          placeholder="Username"
+          placeholder="Name"
         />
         <input
           className="w-5/6 sm:w-2/3 h-10 my-4 text-center sm:my-2 px-2 rounded-lg"
