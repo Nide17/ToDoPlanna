@@ -4,8 +4,9 @@ import Form from './Form'
 
 const SignUp = () => {
 
-  // URL for the backend
-  const url = 'https://to-do-planna-nest.up.railway.app/' || 'http://localhost:3000/'
+  // URL for the backend - prod or dev
+  const url = import.meta.env.VITE_URL
+  console.log(`${url}/users`)
 
   // ERROR, SUCCESS, LOADING
   const [authError, setAuthError] = useState('')

@@ -9,7 +9,7 @@ const Landing = () => {
         <p className="sm:text-lg text-xl text-blue-700 font-bold">Stay on top of your to-do list and never miss a deadline again!</p>
 
         <div className="flex flex-col items-center justify-center mt-8 hover:scale-125 transition duration-500 ease-in-out">
-          <a href="#" className="p-2 border rounded-md bg-blue-500 text-white hover:bg-blue-900 mt-4">
+          <a href="/signup" className="p-2 border rounded-md bg-blue-500 text-white hover:bg-blue-900 mt-4">
             Get started
           </a>
         </div>
