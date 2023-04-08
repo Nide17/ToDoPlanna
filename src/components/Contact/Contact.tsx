@@ -3,7 +3,7 @@ const Contact = () => {
     <div className={`bg-fixed bg-cover bg-center bg-no-repeat bg-[#051726] h-5/6 w-full bg-image-contact py-4`} id="contact">
 
       <div className="flex flex-col h-full w-full text-center sm:px-16">
-        <h1 className="text-2xl sm:text-4xl text-[#f59e0b] font-bold sm:leading-10 mb-2 sm:my-6">
+        <h1 className="text-2xl sm:text-4xl text-[#ffffff] font-bold sm:leading-10 mb-2 sm:my-6">
           Get in Touch with Us
         </h1>
 
