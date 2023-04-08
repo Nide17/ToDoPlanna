@@ -13,8 +13,9 @@ const App = () => {
 
   return (
     <div className="w-screen h-screen bg-gray-800 text-white text-lg font-serif">
-      <AuthContext.Provider value={{}}> // PROVIDING AUTH CONTEXT TO ALL CHILDREN
-        <UserTasksContext.Provider value={{}}> // PROVIDING USER TASKS CONTEXT TO ALL CHILDREN
+      {/* PROVIDING CONTEXT TO ALL CHILDREN */}
+      <AuthContext.Provider value={{}}> 
+        <UserTasksContext.Provider value={{}}>
           <Header />
           <Landing />
           <About />

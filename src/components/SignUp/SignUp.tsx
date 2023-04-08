@@ -6,7 +6,6 @@ const SignUp = () => {
 
   // URL for the backend - prod or dev
   const url = import.meta.env.VITE_URL
-  console.log(`${url}/users`)
 
   // ERROR, SUCCESS, LOADING
   const [authError, setAuthError] = useState('')
