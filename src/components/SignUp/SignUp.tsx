@@ -5,7 +5,7 @@ import Form from './Form'
 const SignUp = () => {
 
   // URL for the backend
-  const url = 'https://todoplanna.cyclic.app' || 'https://gray-cautious-piglet.cyclic.app' || 'http://localhost:3000'
+  const url = 'https://to-do-planna-nest.up.railway.app/' || 'http://localhost:3000/'
 
   // ERROR, SUCCESS, LOADING
   const [authError, setAuthError] = useState('')
