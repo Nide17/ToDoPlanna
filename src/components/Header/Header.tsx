@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Header = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user') || '{}'));
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     }
+
+    // GET USER FROM LOCAL STORAGE
+    useEffect(() => {
+        setUser(JSON.parse(localStorage.getItem('user') || '{}'));
+    }, []); // Fetch the user from localStorage once
 
     return (
         <header className='fixed top-0 left-0 w-full z-10 bg-slate-100 text-slate-900 text-16 drop-shadow-md'>
@@ -41,18 +47,38 @@ const Header = () => {
                             </a>
                         </li>
 
-                        <li className='sm:mx-4 sm:ml-20 py-3 hover:scale-110 transition duration-500 ease-in-out'>
-                            <a href="/login" className='p-2 border border-slate-100 rounded-md hover:bg-blue-500 hover:text-white'>
-                                Login
-                            </a>
-                        </li>
+                        {
+                            user && user.username ?
+                                <>
+                                    <li className='sm:mx-4 py-3 hover:scale-110 transition duration-500 ease-in-out'>
+                                        <a href="/#" className='p-2 border text-blue-500 border-slate-100 rounded-md hover:bg-blue-500 hover:text-white'>
+                                            {user.username}
+                                        </a>
+                                    </li>
+                                    <li className='sm:mx-4 py-3 hover:scale-110 transition duration-500 ease-in-out'>
+                                        <button type="button"
+                                            className="p-2 border rounded-md bg-red-400 text-white hover:bg-red-800"
+                                            onClick={() => { localStorage.clear(); window.location.href = '/' }
+                                            }>
+                                            Logout
+                                        </button>
+                                    </li>
+                                </>
+                                :
+                                <>
+                                    <li className='sm:mx-4 sm:ml-20 py-3 hover:scale-110 transition duration-500 ease-in-out'>
+                                        <a href="/login" className='p-2 border border-slate-100 rounded-md hover:bg-blue-500 hover:text-white'>
+                                            Login
+                                        </a>
+                                    </li>
 
-                        <li className='sm:mx-4 py-3 hover:scale-110 transition duration-500 ease-in-out'>
-                            <a href="/signup" className='p-2 border rounded-md bg-blue-500 text-white hover:bg-blue-900'>
-                                Get started
-                            </a>
-                        </li>
-
+                                    <li className='sm:mx-4 py-3 hover:scale-110 transition duration-500 ease-in-out'>
+                                        <a href="/signup" className='p-2 border rounded-md bg-blue-500 text-white hover:bg-blue-900'>
+                                            Get started
+                                        </a>
+                                    </li>
+                                </>
+                        }
                     </ul>
                 </div>
 

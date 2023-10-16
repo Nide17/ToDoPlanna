@@ -4,11 +4,10 @@ import Lists from "./Lists";
 
 const TodayTodos = () => {
 
-
     return (
         <>
             <Head />
-            <div className='flex top-20 sm:h-auto sm:absolute z-10 sm:z-1 mr-3 sm:mr-0 w-full'>
+            <div className='flex top-20 absolute z-10 sm:z-1 w-full'>
                 <LeftNav />
                 <Lists />
             </div>

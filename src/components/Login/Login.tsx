@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 
@@ -9,6 +9,7 @@ function Login() {
 
   const url = import.meta.env.VITE_BACKEND_URL
   const history = useNavigate()
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user') || '{}'));
 
   // ERROR, SUCCESS, LOADING
   const [authError, setAuthError] = useState<string>('')
@@ -85,6 +86,18 @@ function Login() {
       console.log(error)
     }
   }
+
+  // GET USER FROM LOCAL STORAGE
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem('user') || '{}'));
+  }, []); // Fetch the user from localStorage once
+
+  // Redirect to todayTodos if user is logged in
+  useEffect(() => {
+    if (user && user.username) {
+      history('/todayTodos')
+    }
+  }, [user, history])
 
   return (
     <div className="flex items-center justify-center h-screen bg-image-login bg-cover bg-center bg-no-repeat">
